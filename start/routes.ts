@@ -25,7 +25,7 @@ Route.group(() => {
     Route.get('/', 'UsersController.show')
     Route.post('/', 'UsersController.create')
     Route.patch('/', 'UsersController.update')
-    Route.delete('/', 'UsersController.delete')
+    Route.delete('/', 'UsersController.destroy')
     Route.post('/login', 'UsersController.login')
     Route.post('/logout', 'UsersController.logout')
   }).prefix('/user')
