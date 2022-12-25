@@ -27,7 +27,7 @@ export default class UsersController {
     return user
   }
 
-  public async update({ auth, response, request }: HttpContextContract) {
+  public async update({ auth, request }: HttpContextContract) {
     const body = request.only(['name', 'email', 'address', 'password'])
 
     const user = await auth.use('api').authenticate()

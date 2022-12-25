@@ -27,7 +27,7 @@ export default class User extends BaseModel {
   public comics: HasMany<typeof Comic>
 
   @hasMany(() => Character)
-  public character: HasMany<typeof Character>
+  public characters: HasMany<typeof Character>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

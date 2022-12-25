@@ -32,11 +32,13 @@ Route.group(() => {
 
   Route.group(() => {
     Route.get('/', 'ComicsController.show')
-    Route.patch('/', 'ComicsController.update')
+    Route.post('/', 'ComicsController.create')
+    Route.delete('/:id', 'ComicsController.delete')
   }).prefix('/comic')
 
   Route.group(() => {
     Route.get('/', 'CharactersController.show')
-    Route.patch('/', 'CharactersController.update')
+    Route.post('/', 'CharactersController.create')
+    Route.delete('/:id', 'CharactersController.delete')
   }).prefix('/character')
 }).prefix('/api')

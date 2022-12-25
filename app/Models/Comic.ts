@@ -6,7 +6,10 @@ export default class Comic extends BaseModel {
   public id: number
 
   @column()
-  public code: string
+  public code: number
+
+  @column()
+  public userId: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
