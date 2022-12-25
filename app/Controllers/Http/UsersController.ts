@@ -3,7 +3,7 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import User from 'App/Models/User'
 
 export default class UsersController {
-  public async create({ auth, request, response }: HttpContextContract) {
+  public async create({ auth, request }: HttpContextContract) {
     const newUserSchema = schema.create({
       name: schema.string(),
       address: schema.string(),
@@ -41,6 +41,29 @@ export default class UsersController {
     const user = await User.findOrFail(id)
     await user.delete()
 
+    return true
+  }
+
+  public async login({ auth, request }: HttpContextContract) {
+    await auth.use('api').revoke()
+
+    const loginSchema = schema.create({
+      email: schema.string([rules.email()]),
+      password: schema.string([rules.minLength(8)]),
+    })
+
+    const payload = await request.validate({
+      schema: loginSchema,
+    })
+
+    const token = await auth.use('api').attempt(payload.email, payload.password)
+
+    return token
+  }
+
+  public async logout({ auth }: HttpContextContract) {
+    await auth.use('api').authenticate()
+    await auth.use('api').revoke()
     return true
   }
 }
