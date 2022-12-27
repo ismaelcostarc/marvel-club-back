@@ -27,3 +27,5 @@ npm run dev
 O projeto estará rodando na URL: `http://localhost:3000`
 
 Obs: Conferir se a porta 3000 está livre antes de rodar o servidor, pois caso esteja ocupada o Adonis iniciará o servidor em outra porta, fazendo com o Front não consiga se comunicar com a API.
+
+[Documentação da API](https://documenter.getpostman.com/view/15023315/2s8Z6vYuPe)
