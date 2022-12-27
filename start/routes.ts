@@ -24,7 +24,7 @@ Route.group(() => {
   Route.group(() => {
     Route.get('/', 'UsersController.show')
     Route.post('/', 'UsersController.create')
-    Route.patch('/', 'UsersController.update')
+    Route.put('/', 'UsersController.update')
     Route.delete('/', 'UsersController.destroy')
     Route.post('/login', 'UsersController.login')
     Route.post('/logout', 'UsersController.logout')
